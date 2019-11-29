@@ -15,7 +15,18 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import include, path
+from django.views.generic.edit import CreateView
+
+from nanogrid.views import IndexView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    path('', IndexView.as_view(), name='index'),
+    path('vehicles/', include('nanogrid.urls')),
+    path('signup/', CreateView.as_view(template_name='registration/signup.html',
+                                       form_class=UserCreationForm,
+                                       success_url='/'), name='signup'),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

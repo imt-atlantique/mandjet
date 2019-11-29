@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap4 %}
+{% load i18n %}
+{% load humanize %}
+
+{% block title %}{% trans "Delete a booking" %}{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+	<div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">{{ object.vehicle }}</h6>
+    </div>
+    <div class="card-body">
+			<form method="post">{% csrf_token %}
+				<p>{% trans "Are you sure you want to cancel your booking?" %}</p>
+				<input class="btn btn-danger" type="submit" value="Confirm">
+			</form>
+    </div>
+	</div>
+</div>
+{% endblock %}

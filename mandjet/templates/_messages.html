@@ -1,0 +1,25 @@
+{% load i18n %}
+{% if messages %}
+<li class="nav-item dropdown no-arrow mx-1">
+	<a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		<i class="fas fa-bell fa-fw"></i>
+		<span class="badge badge-danger badge-counter">{{ messages|length }}</span>
+	</a>
+	<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+		<h6 class="dropdown-header">{% trans "Messages Center" %}</h6>
+		{% for message in messages %}
+		<div class="dropdown-item d-flex align-items-center">
+			<div class="mr-3">
+				<div class="icon-circle bg-success">
+					<i class="fas fa-check text-white"></i>
+				</div>
+			</div>
+			<div>
+				{{ message }}
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</li>
+<div class="topbar-divider d-none d-sm-block"></div>
+{% endif %}

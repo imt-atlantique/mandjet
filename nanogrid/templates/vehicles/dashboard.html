@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap4 %}
+{% load i18n %}
+{% load humanize %}
+
+
+{% block style %}{% endblock %}
+{% block scripts %}{% endblock %}
+
+{% block title %}{% trans "Dashboard" %}{% endblock %}
+
+{% block dashboard_active %} active{% endblock %}
+
+{% block content %}
+<div class="row">
+{% for vehicle in object_list %}
+	<div class="col-xl-4 col-md-6 mb-4">
+		<div class="card border-left-{% if vehicle.is_available %}success{% else %}danger{% endif %} shadow h-100 py-2">
+			<div class="card-body">
+				<div class="row no-gutters align-items-center">
+					<div class="col mr-2">
+						<div class="font-weight-bold text-{% if vehicle.is_available %}success{% else %}danger{% endif %} text-uppercase mb-1">{{ vehicle.name }}</div>
+            <img class="img-fluid" src="{% static vehicle.image.url %}" alt="{{ vehicle.name }}">
+            <div class="row no-gutters align-items-center">
+              <div class="col-auto">
+                <div class="h5 mb-0 mr-3 font-weight-bold {% if vehicle.is_available %}text-success{% else %}text-danger{% endif %}">{% if vehicle.is_available %}{% trans "Charging" %} {{ vehicle.battery }}%{% else %}Not available{% endif %}</div>
+              </div>
+							{% if vehicle.is_available %}
+              <div class="col">
+                <div class="progress progress-sm mr-2">
+                  <div class="progress-bar bg-success" role="progressbar" style="width: {{ vehicle.battery }}%" aria-valuenow="{{ vehicle.battery }}" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+							{% endif %}
+            </div>
+					</div>
+				</div>
+			</div>
+      <div class="card-footer bg-white">
+				<span class="float-left">{% if vehicle.next_ts %}{% if not vehicle.is_available %}<strong>{% trans "Returns:" %}</strong> {{ vehicle.next_ts.end|naturalday }} {% trans "at" %} {{ vehicle.next_ts.end|time:"H:i" }} - {{ vehicle.next_ts.user.first_name }}{% else %}<strong>{% trans "Next:" %}</strong> {{ vehicle.next_ts.start|naturalday }} {% trans "at" %} {{ vehicle.next_ts.start|time:"H:i" }} - {{ vehicle.next_ts.user.first_name }}{% endif %}{% endif %}</span>
+				<span class="float-right">
+          <a href="{% url 'nanogrid:book' vehicle.id %}" class="btn btn-light btn-icon-split btn-sm">
+            <span class="icon text-white-50">
+              <i class="fas fa-key"></i>
+            </span>
+            <span class="text">{% trans "Book a ride" %}</span>
+          </a>
+				</span>
+			</div>
+		</div>
+	</div>
+
+{% empty %}
+  <div class="container-fluid">
+    <div class="text-center">
+      <div class="error mx-auto" data-text="No vehicles yet.">No vehicles yet <i class="far fa-sad-cry"></i></div>
+      <p class="text-gray-500 mb-0">It looks like you found a glitch in the matrix...</p>
+      <a href="{% url 'admin:index' %}">← Go to Admin</a>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}
