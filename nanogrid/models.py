@@ -31,6 +31,15 @@ class Vehicle(models.Model):
     def next_ts(self):
         return TimeSlot.objects.filter(vehicle=self, end__gte=timezone.now()).first()
 
+    def save(self, *args, **kwargs):
+        if not self.api_key:
+            self.generate_api_key()
+        return super(Baby, self).save(*args, **kwargs)
+
+    def generate_api_key(self):
+        self.api_key = uuid.uuid4()
+        self.last_activity = timezone.now()
+
     is_available.boolean = True
     is_available.short_description = _('Available?')
 

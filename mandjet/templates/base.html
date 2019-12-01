@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{% static "css/sb-admin-2.min.css" %}" rel="stylesheet">
+		{% block style %}{% endblock %}
 
 		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static "img/favicon144.png" %}">
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static "img/favicon114.png" %}">
@@ -44,7 +45,6 @@
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
-        <!-- Nav Item - Dashboard -->
         <li class="nav-item{% block dashboard_active %}{% endblock %}">
           <a class="nav-link" href="{% url 'index' %}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -65,7 +65,6 @@
           {% trans "Nanogrid" %}
         </div>
 
-        <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
           <a class="nav-link" href="{% url 'admin:index' %}" target="_blank">
             <i class="fas fa-bicycle"></i>
@@ -73,7 +72,6 @@
           </a>
         </li>
 
-        <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
           <a class="nav-link disabled text-muted" href="#">
             <i class="fas fa-solar-panel"></i>
@@ -83,6 +81,18 @@
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
+
+				<li class="nav-item{% block help_active %}{% endblock %}">
+          <a class="nav-link" href="{% url 'help' %}">
+            <i class="far fa-life-ring"></i>
+            <span>{% trans "Help" %}</span></a>
+        </li>
+
+				<li class="nav-item{% block about_active %}{% endblock %}">
+          <a class="nav-link" href="{% url 'about' %}">
+            <i class="fas fa-info-circle"></i>
+            <span>{% trans "About" %}</span></a>
+        </li>
 
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">

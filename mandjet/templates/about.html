@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap4 %}
+{% load i18n %}
+{% load humanize %}
+
+{% block title %}{% trans "About" %}{% endblock %}
+
+{% block about_active %} active{% endblock %}
+
+{% block content %}
+<div class="row">
+	<div class="col-lg-6">
+		<div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">{% trans "The OCIF team" %}</h6>
+      </div>
+      <div class="card-body text-justify">
+				<p>The Mandjet project is proudly developed by the OCIF team. An IMT Atlantique/CNRS research team focused on the Internet of Things.</p>
+				<div class="container-fluid mb-3">
+					<div class="text-center">
+						<img class="img-thumbnail" src="{% static "img/ocif_team.png" %}" alt="OCIF team" />
+					</div>
+				</div>
+				<p>Their field of research is on new algorithms, protocols and architectures for interconnecting objects to the Internet whereby sensor data is accessible via web protocols. Internet of Things technologies facilitate innovation, accelerating the spread of new applications, particularly for intelligent cities or Industry 4.0. The team's research has three fundamental strands: medium access and routing in dense, meshed networks, long-range access networks and the characterisation of wireless environments.</p>
+				<p>The Mandjet project tends to be a show-case of several research topics of the team : smart city, intelligent transport and smart grids (decentralised connected electric networks).</p>
+			</div>
+			<div class="card-footer">
+				<p>More information on <a href="https://www.imt-atlantique.fr/fr/recherche-et-innovation/equipes/ocif" target="_blank">the OCIF Team <i class="fas fa-external-link-alt"></i></a></p>
+      </div>
+    </div>
+	</div>
+  <div class="col-lg-6">
+		<div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">{% trans "Free software license" %}</h6>
+      </div>
+			<div class="card-body text-justify">
+				<p>The Mandjet project is released under the AGPLv3 licence which means that <a href="https://github.com/bgaultier/mandjet" target="_blank">our source code <i class="fas fa-external-link-alt"></i></a> be freely copied, distributed and modified.</p>
+				<div class="container-fluid mb-3">
+					<div class="text-center">
+						<img src="{% static "img/AGPLv3_Logo.svg" %}" alt="AGPLv3" width="200" />
+					</div>
+				</div>
+			</div>
+			<div class="card-footer">
+				<p>More information on <a href="https://en.wikipedia.org/wiki/Affero_General_Public_License" target="_blank">AGPLv3 licence <i class="fas fa-external-link-alt"></i></a></p>
+      </div>
+		</div>
+		<div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">{% trans "Software stack" %}</h6>
+      </div>
+			<div class="card-body text-justify">
+				<p>The Mandjet project is powered by free and open-source software:</p>
+				<ul>
+					<li><a href="https://www.djangoproject.com/" target="_blank">Django</a> is our python web framework.</li>
+					<li><a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> is our front-end toolkit.</li>
+					<li><a href="https://jquery.com/" target="_blank">jQuery</a> is our JavaScript library.</li>
+					<li><a href="https://github.com/BlackrockDigital/startbootstrap-sb-admin-2" target="_blank">SB Admin 2</a> is the beautiful theme we are using.</li>
+					<li><a href="https://fullcalendar.io/" target="_blank">FullCalendar</a> is our calendar JavaScript library.</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

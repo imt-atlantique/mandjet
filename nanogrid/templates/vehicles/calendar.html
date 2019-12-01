@@ -6,6 +6,44 @@
 
 {% block title %}{% trans "Calendar" %}{% endblock %}
 
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static "vendor/fullcalendar/fullcalendar.min.css" %}">
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static "vendor/fullcalendar/moment.min.js" %}" type="text/javascript"></script>
+<script src="{% static "vendor/fullcalendar/fullcalendar.min.js" %}" type="text/javascript"></script>
+<script src="{% static "vendor/fullcalendar/locale-all.js" %}" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	colors = ["#f6c23e", "#4e73df", "#1cc88a", "#36b9cc", "#6f42c1", "#5a5c69"];
+	$('#fc-default').fullCalendar({
+		themeSystem: 'bootstrap4',
+		header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'month,agendaWeek,agendaDay,listMonth'
+    },
+		defaultDate: '{% now "Y-m-d" %}',
+		locale: 'en',
+		navLinks: true, // can click day/week names to navigate views
+		events: [
+			{% if object_list %}
+			{% for booking in object_list %}
+			{
+			  title: '{{ booking.vehicle }} - {% if booking.user.first_name %}{{ booking.user.first_name }} {{ booking.user.last_name }}{% else %}{{ booking.user }}{% endif %}',
+			  start: '{{ booking.start|date:"Y-m-d\TH:i:00" }}',
+				end: '{{ booking.end|date:"Y-m-d\TH:i:00" }}',
+				color: colors[{{ booking.vehicle.id }}%colors.length],
+			},
+			{% endfor %}
+			{% endif %}
+		]
+	});
+});
+</script>
+{% endblock %}
+
 {% block calendar_active %} active{% endblock %}
 
 {% block content %}
@@ -38,7 +76,6 @@
 	              </a>
 							</td>{% endif %}
 	          </tr>
-
 						{% endfor %}
 	        </tbody>
 	      </table>
@@ -46,6 +83,16 @@
 		</div>
 	</div>
 
+	<div class="card shadow mb-4">
+		<a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+      <h6 class="m-0 font-weight-bold text-primary">{% trans "Calendar" %}</h6>
+    </a>
+		<div class="collapse show" id="collapseCardExample" style="">
+      <div class="card-body">
+				<div id="fc-default" class="fc fc-unthemed"></div>
+			</div>
+		</div>
+	</div>
 	{% else %}
 	<div class="container-fluid">
     <div class="text-center">

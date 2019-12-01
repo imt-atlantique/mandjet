@@ -18,12 +18,15 @@ from django.contrib import admin
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import include, path
 from django.views.generic.edit import CreateView
+from django.views.generic import TemplateView
 
 from nanogrid.views import IndexView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),
+    path('help/', TemplateView.as_view(template_name="help.html"), name='help'),
+    path('about/', TemplateView.as_view(template_name="about.html"), name='about'),
     path('vehicles/', include('nanogrid.urls')),
     path('signup/', CreateView.as_view(template_name='registration/signup.html',
                                        form_class=UserCreationForm,
