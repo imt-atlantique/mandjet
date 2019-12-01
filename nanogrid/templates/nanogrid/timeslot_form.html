@@ -19,7 +19,7 @@
 					<div class="form-row">
 						<label class="col-md-12" for="{{ form.start.id_for_label }}">{{ form.start.label_tag }}</label>
 						<input type="date" onchange="document.getElementById('{{ form.start.id_for_label }}').value =  this.value + ' ' + document.getElementById('{{ form.start.id_for_label }}_time').value" value="{% now "Y\-m\-d" %}" class="form-control col-md-4 mr-3 mb-3" required="" id="{{ form.start.id_for_label }}_date" name="{{ form.start.id_for_label }}_date" >
-						<input type="time" onchange="document.getElementById('{{ form.start.id_for_label }}').value = document.getElementById('{{ form.start.id_for_label }}_date').value + ' ' + this.value" value="{% now "H\:i" %}" class="form-control col-md-4 mb-3" required="" id="{{ form.start.id_for_label }}_time" name="{{ form.start.id_for_label }}_time">
+						<input type="time" onchange="document.getElementById('{{ form.start.id_for_label }}').value = document.getElementById('{{ form.start.id_for_label }}_date').value + ' ' + this.value" value="{% now "H\:\0\0" %}" class="form-control col-md-4 mb-3" required="" id="{{ form.start.id_for_label }}_time" name="{{ form.start.id_for_label }}_time">
 						<input type="hidden" id="{{ form.start.id_for_label }}" name="{{ form.start.name }}" value="">
 						{% if form.start.errors %}{% for error in form.start.errors %}
 						<div class="text-danger">{{ error }}</div>
@@ -28,7 +28,7 @@
 					<div class="form-row">
 						<label class="col-md-12" for="{{ form.end.id_for_label }}">{{ form.end.label_tag }}</label>
 						<input type="date" onchange="document.getElementById('{{ form.end.id_for_label }}').value =  this.value + ' ' + document.getElementById('{{ form.end.id_for_label }}_time').value" value="{% now "Y\-m\-d" %}" class="form-control col-md-4 mr-3 mb-3" required="" id="{{ form.end.id_for_label }}_date" name="{{ form.end.id_for_label }}_date" >
-						<input type="time" onchange="document.getElementById('{{ form.end.id_for_label }}').value = document.getElementById('{{ form.end.id_for_label }}_date').value + ' ' + this.value" value="{% now "H\:i" %}" class="form-control col-md-4 mb-3" required="" id="{{ form.end.id_for_label }}_time" name="{{ form.end.id_for_label }}_time">
+						<input type="time" onchange="document.getElementById('{{ form.end.id_for_label }}').value = document.getElementById('{{ form.end.id_for_label }}_date').value + ' ' + this.value" value="{% now "H\:\0\0" %}" class="form-control col-md-4 mb-3" required="" id="{{ form.end.id_for_label }}_time" name="{{ form.end.id_for_label }}_time">
 						<input type="hidden" id="{{ form.end.id_for_label }}" name="{{ form.end.name }}" name="{{ form.end.name }}" value="">
 						{% if form.end.errors %}{% for error in form.end.errors %}
 						<div class="text-danger">{{ error }}</div>
