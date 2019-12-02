@@ -16,7 +16,7 @@
 <script src="{% static "vendor/fullcalendar/locale-all.js" %}" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	colors = ["#f6c23e", "#4e73df", "#1cc88a", "#36b9cc", "#6f42c1", "#5a5c69"];
+	colors = ["#4e73df", "#1cc88a", "#36b9cc", "#6f42c1", "#5a5c69", "#f6c23e"];
 	$('#fc-default').fullCalendar({
 		themeSystem: 'bootstrap4',
 		header: {
@@ -34,7 +34,7 @@ $(document).ready(function(){
 			  title: '{{ booking.vehicle }} - {% if booking.user.first_name %}{{ booking.user.first_name }} {{ booking.user.last_name }}{% else %}{{ booking.user }}{% endif %}',
 			  start: '{{ booking.start|date:"Y-m-d\TH:i:00" }}',
 				end: '{{ booking.end|date:"Y-m-d\TH:i:00" }}',
-				color: colors[{{ booking.vehicle.id }}%colors.length],
+				color: colors[{{ forloop.counter0 }}%colors.length],
 			},
 			{% endfor %}
 			{% endif %}
