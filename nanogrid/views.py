@@ -2,8 +2,12 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.utils.translation import ugettext_lazy as _
 from django.contrib import messages
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 from .models import Vehicle, TimeSlot
+
+import json
 
 class IndexView(generic.ListView):
     template_name = 'vehicles/dashboard.html'
@@ -34,8 +38,22 @@ class TimeSlotIndexView(generic.ListView):
     model = TimeSlot
 
     def get_queryset(self):
-        return TimeSlot.objects.order_by('-start')[:20]
+        return TimeSlot.objects.order_by('-start')[:10]
 
 class TimeSlotDeleteView(generic.DeleteView):
     model = TimeSlot
     success_url = '/'
+
+@csrf_exempt
+def battery_api_view(request, vehicle_id):
+    vehicle = get_object_or_404(Vehicle, id=vehicle_id)
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        if data.get('battery'):
+            vehicle.battery = data.get('battery')
+            vehicle.save()
+    response={
+        'id': vehicle.id,
+        'battery': vehicle.battery,
+    }
+    return JsonResponse(response)
