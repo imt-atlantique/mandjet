@@ -5,7 +5,10 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
 from django.core.validators import MinValueValidator, MaxValueValidator
 
+import uuid
+
 class Vehicle(models.Model):
+    id = models.UUIDField(_(u'API key'), primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(_(u'Name'), max_length=32, default=_('My e-scooter'))
 
     VEHICLE_TYPE = (
@@ -30,15 +33,6 @@ class Vehicle(models.Model):
 
     def next_ts(self):
         return TimeSlot.objects.filter(vehicle=self, end__gte=timezone.now()).first()
-
-    def save(self, *args, **kwargs):
-        if not self.api_key:
-            self.generate_api_key()
-        return super(Baby, self).save(*args, **kwargs)
-
-    def generate_api_key(self):
-        self.api_key = uuid.uuid4()
-        self.last_activity = timezone.now()
 
     is_available.boolean = True
     is_available.short_description = _('Available?')
