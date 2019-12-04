@@ -2,12 +2,13 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.utils.translation import ugettext_lazy as _
 from django.contrib import messages
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
 from .models import Vehicle, TimeSlot
 
 import json
+from icalendar import Calendar, Event
 
 class IndexView(generic.ListView):
     template_name = 'vehicles/dashboard.html'
@@ -57,3 +58,22 @@ def battery_api_view(request, vehicle_id):
         'battery': vehicle.battery,
     }
     return JsonResponse(response)
+
+@csrf_exempt
+def ics_api_view(request):
+    timeslots = TimeSlot.objects.all()
+
+    calendar = Calendar()
+    calendar.add('prodid', '-//IMT Atlantique//NONSGML Mandjet vehicles calendar//EN')
+    calendar.add('version', '2.0')
+
+    for timeslot in timeslots:
+        event = Event()
+        event.add('summary', str(timeslot.vehicle) + ' - ' + timeslot.user.first_name)
+        event.add('dtstart', timeslot.start)
+        event.add('dtend', timeslot.end)
+        event.add('dtstamp', timeslot.created_date)
+
+        calendar.add_component(event)
+
+    return HttpResponse(calendar.to_ical(), content_type='text/calendar')

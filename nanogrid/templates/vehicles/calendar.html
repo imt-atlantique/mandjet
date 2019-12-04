@@ -19,11 +19,20 @@ $(document).ready(function(){
 	colors = ["#4e73df", "#1cc88a", "#36b9cc", "#6f42c1", "#5a5c69", "#f6c23e"];
 	$('#fc-default').fullCalendar({
 		themeSystem: 'bootstrap4',
+		customButtons: {
+	    icsButton: {
+	      text: '{% trans "Get iCalendar (.ics)" %}',
+	      click: function() {
+					$('#calendarModal').modal('show');
+	      }
+	    }
+	  },
 		header: {
       left: 'prev,next today',
       center: 'title',
-      right: 'month,agendaWeek,agendaDay,listMonth'
+      right: 'month,agendaWeek,agendaDay,listMonth icsButton'
     },
+		defaultView: 'agendaWeek',
 		defaultDate: '{% now "Y-m-d" %}',
 		locale: 'en',
 		navLinks: true, // can click day/week names to navigate views
@@ -34,12 +43,13 @@ $(document).ready(function(){
 			  title: '{{ booking.vehicle }} - {% if booking.user.first_name %}{{ booking.user.first_name }} {{ booking.user.last_name }}{% else %}{{ booking.user }}{% endif %}',
 			  start: '{{ booking.start|date:"Y-m-d\TH:i:00" }}',
 				end: '{{ booking.end|date:"Y-m-d\TH:i:00" }}',
-				color: colors[{{ forloop.counter0 }}%colors.length],
+				color: colors[{{ booking.vehicle.id.int }}%colors.length],
 			},
 			{% endfor %}
 			{% endif %}
 		]
 	});
+	$('.fc-icsButton-button').html('<i class="far fa-calendar-alt"></i> {% trans "Get iCalendar (.ics)" %}');
 });
 </script>
 {% endblock %}
@@ -101,5 +111,22 @@ $(document).ready(function(){
     </div>
   </div>
 	{% endif %}
+</div>
+<!-- Calendar modal -->
+<div id="calendarModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="calendarModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="calendarModalLabel">{% trans "Get iCalendar (.ics)" %}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+				<p>{% trans "Please use the following url to subscribe to the .ics calendar:" %}</p>
+				<code class="text-primary">{{ request.build_absolute_uri|slice:-1 }}.ics</code>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
