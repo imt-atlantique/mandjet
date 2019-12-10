@@ -14,6 +14,8 @@ class IndexView(generic.ListView):
     template_name = 'vehicles/dashboard.html'
     model = Vehicle
 
+    ordering = ['-id']
+
 class TimeSlotCreateView(generic.CreateView):
     model = TimeSlot
     fields = ['start', 'end']
@@ -40,6 +42,18 @@ class TimeSlotIndexView(generic.ListView):
 
     def get_queryset(self):
         return TimeSlot.objects.order_by('-start')[:10]
+
+class TimeSlotUpdateView(generic.UpdateView):
+    model = TimeSlot
+    fields = ['start', 'end']
+    success_url = '/'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        vehicle = get_object_or_404(Vehicle, pk=self.kwargs.get('vehicle_id'))
+        context['vehicle'] = vehicle
+
+        return context
 
 class TimeSlotDeleteView(generic.DeleteView):
     model = TimeSlot

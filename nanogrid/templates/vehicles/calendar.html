@@ -81,6 +81,9 @@ $(document).ready(function(){
 	            <td>{{ booking.start|naturalday }} {% trans "at" %} {{ booking.start|time:"H:i" }} → {{ booking.end|naturalday }} {% trans "at" %} {{ booking.end|time:"H:i" }}</td>
 	            <td>{% if booking.user.first_name %}{{ booking.user.first_name }} {{ booking.user.last_name }}{% else %}{{ booking.user }}{% endif %}</td>
 							<td>{% if request.user == booking.user %}
+								<a href="{% url 'nanogrid:update' booking.vehicle.id booking.id %}" class="btn btn-primary btn-circle btn-sm">
+	                <i class="fas fa-pencil-alt"></i>
+	              </a>
 								<a href="{% url 'nanogrid:delete' booking.vehicle.id booking.id %}" class="btn btn-danger btn-circle btn-sm">
 	                <i class="fas fa-trash"></i>
 	              </a>
