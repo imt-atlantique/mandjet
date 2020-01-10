@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap4 %}
+{% load i18n %}
+{% load humanize %}
+
+
+{% block style %}
+<link href="{% static "vendor/chartist.js/chartist.min.css" %}" rel="stylesheet">
+<style>
+	.ct-series-a .ct-area {
+		fill: #4e73df;
+	}
+	.ct-series-a .ct-line {
+		stroke: #4e73df;
+	}
+	.ct-series-b .ct-area {
+		fill: #f6c23e;
+	}
+	.ct-series-b .ct-line {
+		stroke: #f6c23e	;
+	}
+
+	.ct-series-a .ct-slice-pie {
+		fill: #4e73df;
+	}
+
+	.ct-series-b .ct-slice-pie {
+		fill: #f6c23e;
+	}
+</style>
+{% endblock %}
+{% block scripts %}
+<script src="{% static "vendor/chartist.js/chartist.min.js" %}" type="text/javascript"></script>
+<script src="{% static "vendor/fullcalendar/moment.min.js" %}" type="text/javascript"></script>
+<script type="text/javascript">
+	// Requires Moment.js
+
+	var chart = new Chartist.Line('.ct-chart', {
+	  series: [
+			{
+	      name: 'forecastAreaChart',
+	      data: [
+					{% for x, y in forecasts.items %}
+					{x: new Date("{{ x }}"), y: {{ y }}},
+					{% endfor %}
+	      ]
+	    },
+			{
+	      name: 'productionAreaChart',
+	      data: [
+					{% for x, y in forecasts.items %}
+					{x: new Date("{{ x }}"), y: 0},
+					{% endfor %}
+	      ]
+	    },
+	  ]
+	}, {
+		low: 0,
+		showArea: true,
+		showPoint: false,
+		fullWidth: true,
+		height: '300px',
+	  axisX: {
+	    type: Chartist.FixedScaleAxis,
+	    divisor: 8,
+	    labelInterpolationFnc: function(value) {
+	      return moment(value).format('H:mm');
+	    }
+	  },
+		axisY: {
+	    type: Chartist.FixedScaleAxis,
+	    divisor: 6,
+			labelInterpolationFnc: function(value) {
+        return (value/1000).toFixed(1) + 'kW';
+      }
+	  }
+	});
+
+	var data = {
+	  labels: ['Grid', 'Solar'],
+	  series: [98, 2]
+	};
+
+	var options = {
+		height: '300px',
+	  labelInterpolationFnc: function(value) {
+	    return value[0]
+	  }
+	};
+
+	var responsiveOptions = [
+	  ['screen and (min-width: 640px)', {
+	    chartPadding: 30,
+	    labelOffset: 100,
+	    labelDirection: 'explode',
+	    labelInterpolationFnc: function(value) {
+	      return value;
+	    }
+	  }],
+	  ['screen and (min-width: 1024px)', {
+	    labelOffset: 80,
+	    chartPadding: 20
+	  }]
+	];
+
+	new Chartist.Pie('.ct-pie', data, options, responsiveOptions);
+</script>
+{% endblock %}
+
+{% block title %}{% trans "PV Solar panels" %}{% endblock %}
+
+{% block nanogrid_active %} active{% endblock %}
+
+{% block content %}
+<div class="row">
+	<div class="col-xl-4 col-md-6 mb-4">
+    <div class="card border-left-warning shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">{% trans "Solar PV" %}</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">0kW</div>
+          </div>
+          <div class="col-auto">
+						<i class="fas fa-solar-panel  fa-2x text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-4 col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{% trans "Forecast solar PV" %}</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">{% widthratio current_forecast 1000 1 %}kW</div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-history fa-2x text-gray-300 fa-flip-horizontal"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-4 col-md-6 mb-4">
+    <div class="card border-left-info shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">{% trans "Battery" %}</div>
+            <div class="row no-gutters align-items-center">
+              <div class="col-auto">
+                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">0%</div>
+              </div>
+              <div class="col">
+                <div class="progress progress-sm mr-2">
+                  <div class="progress-bar bg-info" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-car-battery fa-2x text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+	<div class="col-lg-8">
+		<div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold">{% trans "Solar:" %} <span class="text-warning">{% trans "production" %}</span> {% trans "vs" %} <span class="text-primary">{% trans "forecast" %}</span> </h6>
+      </div>
+      <div class="card-body">
+				<div class="ct-chart"></div>
+      </div>
+    </div>
+	</div>
+	<div class="col-lg-4">
+		<div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold">{% trans "Energy mix" %}</h6>
+      </div>
+      <div class="card-body">
+				<div class="ct-pie"></div>
+      </div>
+    </div>
+	</div>
+</div>
+{% endblock %}

@@ -16,20 +16,25 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 from django.urls import include, path
 from django.views.generic.edit import CreateView
 from django.views.generic import TemplateView
 
-from nanogrid.views import IndexView
+from nanogrid.views import IndexView, nanogrid_view
+from .views import UserUpdateView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),
     path('help/', TemplateView.as_view(template_name="help.html"), name='help'),
+    path('nanogrid/', nanogrid_view, name='dashboard'),
     path('about/', TemplateView.as_view(template_name="about.html"), name='about'),
     path('vehicles/', include('nanogrid.urls')),
     path('signup/', CreateView.as_view(template_name='registration/signup.html',
                                        form_class=UserCreationForm,
                                        success_url='/'), name='signup'),
+    path('profile/<int:pk>/', login_required(UserUpdateView.as_view()), name='profile'),
     path('accounts/', include('django.contrib.auth.urls')),
+
 ]

@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.utils.translation import ugettext_lazy as _
+from django.utils import timezone
 from django.contrib import messages
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -91,3 +92,22 @@ def ics_api_view(request):
         calendar.add_component(event)
 
     return HttpResponse(calendar.to_ical(), content_type='text/calendar')
+
+def nanogrid_view(request):
+    forecasts_file = open('nanogrid/forecast.solar/latest.json')
+    forecasts = json.load(forecasts_file)
+
+    forecasts = forecasts.get('result')
+
+    now = timezone.now()
+
+    current_forecast = 0
+    for k, v in forecasts.items():
+        if k.startswith(now.strftime('%Y-%m-%d %H')):
+            current_forecast = v
+
+    context = {
+            'forecasts': forecasts,
+            'current_forecast': current_forecast,
+            }
+    return render(request, 'nanogrid/dashboard.html', context)

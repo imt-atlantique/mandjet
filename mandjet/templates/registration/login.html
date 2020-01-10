@@ -37,7 +37,7 @@
               <div class="container-fluid">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                    <h1 class="h2 text-gray-900 mb-4">Welcome Back!</h1>
                   </div>
 									<form class="user" method="post">
 	                    {% csrf_token %}
@@ -47,6 +47,10 @@
                           <div class="col-md-6 col-12 float-sm-left text-center text-sm-right small"><a href="{% url 'password_reset' %}" class="card-link">{% trans "Forgot Password?" %}</a></div>
                       </div>
 	                    <button type="submit" class="btn btn-primary btn-user btn-block">{% trans "Login" %}</button>
+                    <hr>
+                    <a href="{% url 'login' %}" class="btn btn-info btn-user btn-block" style="border-color: #56d2ec; background-color: #56d2ec;">
+                      <img src="{% static "img/IMT_Atlantique_logo_white.svg" %}" alt="IMT Atlantique" height="16"> Login with SSO
+                    </a>
 	                </form>
                 </div>
               </div>
