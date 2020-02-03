@@ -54,7 +54,7 @@
 				<li class="nav-item{% block calendar_active %}{% endblock %}">
           <a class="nav-link" href="{% url 'nanogrid:calendar' %}">
             <i class="far fa-calendar-alt"></i>
-            <span>{% trans "Bookings" %}</span></a>
+            <span>{% trans "Calendar" %}</span></a>
         </li>
 
         <!-- Divider -->
@@ -119,9 +119,6 @@
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
 
-              <!-- Nav Item - Alerts -->
-              {% include "_messages.html" %}
-
               <!-- Nav Item - User Information -->
               <li class="nav-item dropdown no-arrow">
 								{% if user.is_authenticated %}
@@ -152,6 +149,8 @@
             <h1 class="h3 mb-4 text-gray-800">
               {% block title %}{% endblock %}
             </h1>
+						<!-- Alerts -->
+						{% include "_messages.html" %}
             {% block content %}{% endblock %}
 
           </div>

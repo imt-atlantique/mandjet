@@ -45,3 +45,7 @@ class TimeSlot(models.Model):
     vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
     created_date = models.DateTimeField(_('Date created'), auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        if self.start != self.end:
+            super().save(*args, **kwargs)
