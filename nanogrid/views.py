@@ -34,7 +34,7 @@ class TimeSlotCreateView(generic.CreateView):
         form.instance.vehicle = vehicle
         form.instance.user = self.request.user
 
-        timeslot_conflict = TimeSlot.objects.filter(vehicle=vehicle, start__lt=form.instance.end, end__gte=form.instance.start).first()
+        timeslot_conflict = TimeSlot.objects.filter(vehicle=vehicle, start__lte=form.instance.end, end__gte=form.instance.start).first()
         if timeslot_conflict or form.instance.start > form.instance.end:
             messages.error(self.request, _(u"%s is not available for this period") % vehicle)
             form.instance.end = form.instance.start
