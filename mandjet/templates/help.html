@@ -9,13 +9,51 @@
 {% block help_active %} active{% endblock %}
 
 {% block content %}
-<div class="container-fluid">
-	<div class="card shadow mb-4">
-		<div class="card-header py-3">
-			<h6 class="m-0 font-weight-bold text-primary">{% trans "Getting started" %}</h6>
-    </div>
-		<div class="card-body">
-			
+<div class="row">
+	<div class="col-lg-6">
+		<div class="card shadow mb-4">
+			<div class="card-header py-3">
+				<h6 class="m-0 font-weight-bold text-primary">{% trans "How to book a ride?" %}</h6>
+	    </div>
+			<div class="card-body">
+				<p>{% trans "Please follow the following steps to book a ride:" %}</p>
+				<ol>
+					<li>{% trans "First of all, book your ride on this website →" %} <a href="/" target="_blank"> Dashboard</a>.</li>
+					<li>{% trans "Choose an available electric vehicle and click" %}
+						<button class="btn btn-light btn-icon-split btn-sm" disabled="">
+							<span class="icon text-white-50"><i class="fas fa-key"></i></span>
+							<span class="text">{% trans "Book a ride" %}</span>
+						</button>
+					</li>
+					<li>{% trans "Please log in using your IMT Atlantique credentials" %}</li>
+					<li>{% trans "Specify your booking details and save!" %}</li>
+				</ol>
+				<p>{% trans "Please have a look at the recap below:" %}<br><video class="img-thumbnail" src="{% static "img/mandjet_booking.mp4" %}" autoplay muted="" width="300px"></video></p>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="card shadow mb-4">
+			<div class="card-header py-3">
+				<h6 class="m-0 font-weight-bold text-primary">{% trans "Where are the vehicles?" %}</h6>
+	    </div>
+			<div class="card-body">
+				<ol>
+					<li>{% trans "Go to the front desk and ask Delphine to open A00-104A room." %}</li>
+					<li>{% trans "You will have to sign a legal discharge of responsibility on your first booking." %}</li>
+					<li>⚠️ <strong>{% trans "Safety first:" %}</strong>
+						<ul>
+							<li>{% trans "Wear neon, fluorescent or other bright clothing" %}</li>
+							<li>{% trans "Ride during the day" %}</li>
+							<li>{% trans "Wear an Helmet (two helmets are provided by IMT Atlantique)" %}</li>
+							<li>{% trans "Get acquainted with" %} <a href="https://www.service-public.fr/particuliers/actualites/A13647">{% trans "french traffic laws" %}</a>!</li>
+						</ul>
+					</li>
+					<li>{% trans "If you are riding a bike, always take a lock with you!" %}</li>
+					<li>{% trans "Enjoy your ride and come back before the end of your booking." %}</li>
+					<li>{% trans "Do not forget to plug your vehicle once you get back!" %}</li>
+				</ol>
+			</div>
 		</div>
 	</div>
 </div>
