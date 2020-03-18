@@ -5,8 +5,9 @@ from django.utils import timezone
 from django.contrib import messages
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.core.mail import send_mail
 
-from .models import Vehicle, TimeSlot
+from .models import Vehicle, TimeSlot, Issue
 
 import json
 from icalendar import Calendar, Event
@@ -64,6 +65,34 @@ class TimeSlotUpdateView(generic.UpdateView):
         context['vehicle'] = vehicle
 
         return context
+
+class ReportIssueView(generic.CreateView):
+    model = Issue
+    fields = ['comment',]
+    success_url = '/'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        vehicle = get_object_or_404(Vehicle, pk=self.kwargs.get('vehicle_id'))
+        context['vehicle'] = vehicle
+
+        return context
+
+    def form_valid(self, form):
+        vehicle = get_object_or_404(Vehicle, pk=self.kwargs.get('vehicle_id'))
+        form.instance.vehicle = vehicle
+        form.instance.user = self.request.user
+
+        messages.success(self.request, _(u"Your issue for %s has been reported!") % (vehicle.name[0].lower() + vehicle.name[1:]))
+
+        send_mail(
+            _(u"An issue for %s has been reported!") % (vehicle.name[0].lower() + vehicle.name[1:]),
+            _(u"Here is the comment: %s") % form.instance.comment,
+            'support@mandjet.fr',
+            ['baptiste@lenuage.io'],
+            fail_silently=False,
+        )
+        return super().form_valid(form)
 
 class TimeSlotDeleteView(generic.DeleteView):
     model = TimeSlot

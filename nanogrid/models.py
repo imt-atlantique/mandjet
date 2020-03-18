@@ -49,3 +49,11 @@ class TimeSlot(models.Model):
     def save(self, *args, **kwargs):
         if self.start != self.end:
             super().save(*args, **kwargs)
+
+
+class Issue(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+    comment = models.TextField(_("Comment"))
+
+    created_date = models.DateTimeField(_('Date created'), auto_now_add=True)
