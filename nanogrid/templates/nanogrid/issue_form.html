@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+{% load i18n %}
+{% load humanize %}
+
+{% block title %}{% trans "Report an issue" %}{% endblock %}
+
+{% block content %}
+<div class="row">
+	<div class="col-lg-6">
+		<div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">{{ vehicle }}</h6>
+      </div>
+      <div class="card-body">
+				<form method="post">
+					{% csrf_token %}
+					<div class="form-group">
+						<label for="id_comment">{% trans "Please leave a comment about the vehicle status:" %}</label>
+						<textarea name="comment" cols="40" rows="10" class="form-control" placeholder="{% trans "I found the vehicle..." %}" title="" required="" id="id_comment"></textarea>
+					</div>
+					<button type="submit" class="btn btn-primary"><i class="far fa-paper-plane"></i> {% trans "Send" %}</button>
+				</form>
+      </div>
+    </div>
+	</div>
+</div>
+{% endblock %}
