@@ -1,0 +1,374 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-18 18:42+0100\n"
+"PO-Revision-Date: 2020-03-18 18:43+0100\n"
+"Last-Translator: Baptiste Gaultier <baptiste.gaultier@imt.fr>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 2.3\n"
+
+#: mandjet/templates/about.html:7 mandjet/templates/base.html:94
+msgid "About"
+msgstr "À propos"
+
+#: mandjet/templates/about.html:16
+msgid "The OCIF team"
+msgstr "L’équipe OCIF"
+
+#: mandjet/templates/about.html:36
+msgid "Free software license"
+msgstr "Licence de logiciel libre"
+
+#: mandjet/templates/about.html:52
+msgid "Software stack"
+msgstr "Pile logicielle"
+
+#: mandjet/templates/auth/user_form.html:6
+msgid "Modify your profile"
+msgstr "Modifier votre profil"
+
+#: mandjet/templates/auth/user_form.html:16
+#: nanogrid/templates/nanogrid/timeslot_form.html:38
+msgid "Save"
+msgstr "Enregistrer"
+
+#: mandjet/templates/base.html:51 nanogrid/templates/vehicles/dashboard.html:11
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+#: mandjet/templates/base.html:57 nanogrid/templates/vehicles/calendar.html:7
+#: nanogrid/templates/vehicles/calendar.html:64
+msgid "Calendar"
+msgstr "Calendrier"
+
+#: mandjet/templates/base.html:65
+msgid "Nanogrid"
+msgstr "Nanogrid (Nanogrid)"
+
+#: mandjet/templates/base.html:71
+msgid "Vehicles"
+msgstr "Véhicules"
+
+#: mandjet/templates/base.html:78
+#: nanogrid/templates/nanogrid/dashboard.html:111
+msgid "PV Solar panels"
+msgstr "Panneaux solaires"
+
+#: mandjet/templates/base.html:88 mandjet/templates/help.html:7
+msgid "Help"
+msgstr "Aide"
+
+#: mandjet/templates/base.html:132
+msgid "Profile"
+msgstr "Profil"
+
+#: mandjet/templates/base.html:135
+msgid "Logout"
+msgstr "Déconnexion"
+
+#: mandjet/templates/help.html:16
+msgid "How to book a ride?"
+msgstr "Comment réserver un véhicule ?"
+
+#: mandjet/templates/help.html:19
+msgid "Please follow the following steps to book a ride:"
+msgstr "Veuillez suivre les étapes suivantes pour réserver un trajet :"
+
+#: mandjet/templates/help.html:21
+msgid "First of all, book your ride on this website →"
+msgstr "Tout d’abord, réservez votre véhicule en cliquant sur"
+
+#: mandjet/templates/help.html:22
+msgid "Choose an available electric vehicle and click"
+msgstr "Choisissez un véhicule électrique disponible et cliquez sur"
+
+#: mandjet/templates/help.html:25
+#: nanogrid/templates/nanogrid/timeslot_form.html:7
+#: nanogrid/templates/vehicles/dashboard.html:43
+#: nanogrid/templates/vehicles/dashboard.html:47
+msgid "Book a ride"
+msgstr "Réserver"
+
+#: mandjet/templates/help.html:28
+msgid "Please log in using your IMT Atlantique credentials"
+msgstr "Connectez vous en utilisant vos identifiants IMT Atlantique"
+
+#: mandjet/templates/help.html:29
+msgid "Specify your booking details and save!"
+msgstr ""
+"Précisez les horaires de votre réservation et cliquez sur sauvegarder !"
+
+#: mandjet/templates/help.html:31
+msgid "Please have a look at the recap below:"
+msgstr "Une vidéo récapitulative est disponible ci-dessous :"
+
+#: mandjet/templates/help.html:38
+msgid "Where are the vehicles?"
+msgstr "Où se trouvent les véhicules ?"
+
+#: mandjet/templates/help.html:42
+msgid "Go to the front desk and ask Delphine to open A00-104A room."
+msgstr ""
+"Rendez-vous à l’accueil et demander à Delphine d’ouvrir la salle A00-104A."
+
+#: mandjet/templates/help.html:43
+msgid ""
+"You will have to sign a legal discharge of responsibility on your first "
+"booking."
+msgstr ""
+"Lors de votre première réservation, il vous sera demander de signer une "
+"décharge."
+
+#: mandjet/templates/help.html:44
+msgid "Safety first:"
+msgstr "La sécurité avant tout :"
+
+#: mandjet/templates/help.html:46
+msgid "Wear neon, fluorescent or other bright clothing"
+msgstr ""
+"Privilégiez des vêtements réfléchissants, fluo ou encore des vêtements clairs"
+
+#: mandjet/templates/help.html:47
+msgid "Ride during the day"
+msgstr "Effectuez vos trajets de jour"
+
+#: mandjet/templates/help.html:48
+msgid "Wear an Helmet (two helmets are provided by IMT Atlantique)"
+msgstr "Portez un casque (deux casque peuvent être prêter par l’école)"
+
+#: mandjet/templates/help.html:49
+msgid "Get acquainted with"
+msgstr "Prenez connaissance du"
+
+#: mandjet/templates/help.html:49
+msgid "french traffic laws"
+msgstr "code de la route français"
+
+#: mandjet/templates/help.html:52
+msgid "If you are riding a bike, always take a lock with you!"
+msgstr "Si vous réservez un vélo, prenez toujours un cadenas avec vous !"
+
+#: mandjet/templates/help.html:53
+msgid "Enjoy your ride and come back before the end of your booking."
+msgstr "Profitez de votre voyage et revenez avant la fin de votre réservation."
+
+#: mandjet/templates/help.html:54
+msgid "Do not forget to plug your vehicle once you get back!"
+msgstr "N’oubliez pas de brancher votre véhicule à votre retour !"
+
+#: mandjet/templates/registration/login.html:47
+msgid "Forgot Password?"
+msgstr "Mot de passe oublié ?"
+
+#: mandjet/templates/registration/login.html:49
+msgid "Login"
+msgstr "Connexion"
+
+#: nanogrid/models.py:11
+msgid "API key"
+msgstr "Clé d’API"
+
+#: nanogrid/models.py:12
+msgid "Name"
+msgstr "Nom"
+
+#: nanogrid/models.py:12
+msgid "My e-scooter"
+msgstr "Mon scooter électrique"
+
+#: nanogrid/models.py:15
+msgid "Scooter"
+msgstr "Trotinette"
+
+#: nanogrid/models.py:16
+msgid "Bike"
+msgstr "Vélo"
+
+#: nanogrid/models.py:17
+msgid "Scooter (motorcycle)"
+msgstr "Scooter"
+
+#: nanogrid/models.py:20
+msgid "Vehicle "
+msgstr "Véhicule "
+
+#: nanogrid/models.py:21
+msgid "Serial Number"
+msgstr "Numéro de série"
+
+#: nanogrid/models.py:22
+msgid "Battery status"
+msgstr "Niveau de charge de la batterie"
+
+#: nanogrid/models.py:24
+msgid "Picture"
+msgstr "Photo"
+
+#: nanogrid/models.py:26 nanogrid/models.py:47 nanogrid/models.py:59
+msgid "Date created"
+msgstr "Date de création"
+
+#: nanogrid/models.py:38
+msgid "Available?"
+msgstr "Disponible ?"
+
+#: nanogrid/models.py:41
+msgid "Start time"
+msgstr "Date de début"
+
+#: nanogrid/models.py:42
+msgid "End time"
+msgstr "Date de fin"
+
+#: nanogrid/models.py:57
+msgid "Comment"
+msgstr "Commentaire"
+
+#: nanogrid/templates/nanogrid/dashboard.html:122
+msgid "Solar PV"
+msgstr "Panneau solaire"
+
+#: nanogrid/templates/nanogrid/dashboard.html:137
+msgid "Forecast solar PV"
+msgstr "Prévision panneaux solaires"
+
+#: nanogrid/templates/nanogrid/dashboard.html:152
+msgid "Battery"
+msgstr "Batterie"
+
+#: nanogrid/templates/nanogrid/dashboard.html:176
+msgid "Solar:"
+msgstr "Solaire :"
+
+#: nanogrid/templates/nanogrid/dashboard.html:176
+msgid "production"
+msgstr "production"
+
+#: nanogrid/templates/nanogrid/dashboard.html:176
+msgid "vs"
+msgstr "vs"
+
+#: nanogrid/templates/nanogrid/dashboard.html:176
+msgid "forecast"
+msgstr "prévision"
+
+#: nanogrid/templates/nanogrid/dashboard.html:186
+msgid "Energy mix"
+msgstr "Mix énergétique"
+
+#: nanogrid/templates/nanogrid/issue_form.html:7
+#: nanogrid/templates/vehicles/dashboard.html:49
+msgid "Report an issue"
+msgstr "Signaler un problème"
+
+#: nanogrid/templates/nanogrid/issue_form.html:20
+msgid "Please leave a comment about the vehicle status:"
+msgstr "Veuillez laisser un commentaire sur l’état du véhicule :"
+
+#: nanogrid/templates/nanogrid/issue_form.html:21
+msgid "I found the vehicle..."
+msgstr "J’ai trouvé le véhicule…"
+
+#: nanogrid/templates/nanogrid/issue_form.html:23
+msgid "Send"
+msgstr "Envoyer"
+
+#: nanogrid/templates/nanogrid/timeslot_confirm_delete.html:7
+msgid "Delete a booking"
+msgstr "Supprimer la réservation"
+
+#: nanogrid/templates/nanogrid/timeslot_confirm_delete.html:17
+msgid "Are you sure you want to cancel your booking?"
+msgstr "Êtes vous sûr de vouloir annuler votre réservation ?"
+
+#: nanogrid/templates/vehicles/calendar.html:24
+#: nanogrid/templates/vehicles/calendar.html:52
+#: nanogrid/templates/vehicles/calendar.html:123
+msgid "Get iCalendar (.ics)"
+msgstr "Obtenir le lien iClander (.ics)"
+
+#: nanogrid/templates/vehicles/calendar.html:75
+msgid "Bookings"
+msgstr "Réservations"
+
+#: nanogrid/templates/vehicles/calendar.html:82
+msgid "Vehicle"
+msgstr "Véhicule"
+
+#: nanogrid/templates/vehicles/calendar.html:83
+msgid "Booking"
+msgstr "Réservation"
+
+#: nanogrid/templates/vehicles/calendar.html:84
+msgid "User"
+msgstr "Utilisateur"
+
+#: nanogrid/templates/vehicles/calendar.html:85
+msgid "Actions"
+msgstr "Actions"
+
+#: nanogrid/templates/vehicles/calendar.html:92
+#: nanogrid/templates/vehicles/dashboard.html:41
+msgid "at"
+msgstr "à"
+
+#: nanogrid/templates/vehicles/calendar.html:112
+msgid "No booking yet"
+msgstr "Pas encore de réservation"
+
+#: nanogrid/templates/vehicles/calendar.html:113
+msgid "Go to Dashboard"
+msgstr "Revenir au tableau de bord"
+
+#: nanogrid/templates/vehicles/calendar.html:129
+msgid "Please use the following url to subscribe to the .ics calendar:"
+msgstr ""
+"Veuillez utiliser l’url suivante pour vous abonner au calendrier .ics :"
+
+#: nanogrid/templates/vehicles/dashboard.html:27
+msgid "Charging"
+msgstr "En charge"
+
+#: nanogrid/templates/vehicles/dashboard.html:41
+msgid "Returns:"
+msgstr "Retour :"
+
+#: nanogrid/templates/vehicles/dashboard.html:41
+msgid "Next:"
+msgstr "Suivant :"
+
+#: nanogrid/views.py:40
+#, python-format
+msgid "%s is not available for this period"
+msgstr "%s n’est pas disponible sur ce créneau"
+
+#: nanogrid/views.py:44 nanogrid/views.py:47
+#, python-format
+msgid "Your booking for %s is ok!"
+msgstr "Votre réservation pour %s est ok!"
+
+#: nanogrid/views.py:86
+#, python-format
+msgid "Your issue for %s has been reported!"
+msgstr "Votre problème de %s a été signalé !"
+
+#: nanogrid/views.py:89
+#, python-format
+msgid "An issue for %s has been reported!"
+msgstr "Un problème sur %s a été signalé !"
+
+#: nanogrid/views.py:90
+#, python-format
+msgid "Here is the comment: %s"
+msgstr "Voici le commentaire laissé par l’utilisateur : %s"
