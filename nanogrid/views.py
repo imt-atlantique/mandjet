@@ -113,6 +113,21 @@ def battery_api_view(request, vehicle_id):
     return JsonResponse(response)
 
 @csrf_exempt
+def status_api_view(request):
+    vehicles = Vehicle.objects.all()
+
+    vehicles_status = []
+    for vehicle in vehicles:
+        vehicles_status.append({
+            "id":vehicle.id, 
+            "name":vehicle.name, 
+            "type":vehicle.type, 
+            "battery":vehicle.battery
+        })
+
+    return JsonResponse(vehicles_status, safe=False)
+
+@csrf_exempt
 def ics_api_view(request):
     timeslots = TimeSlot.objects.all()
 
