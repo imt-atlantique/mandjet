@@ -122,7 +122,7 @@ def status_api_view(request):
             "id":vehicle.id, 
             "name":vehicle.name, 
             "type":vehicle.type, 
-            "available":bool(vehicle.is_available()),
+            "is_available":bool(vehicle.is_available()),
             "battery":vehicle.battery
         })
 
