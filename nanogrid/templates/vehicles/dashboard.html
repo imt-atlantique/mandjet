@@ -24,7 +24,7 @@
             <img class="img-fluid" src="{% static vehicle.image.url %}" alt="{{ vehicle.name }}">
             <div class="row no-gutters align-items-center">
               <div class="col-auto">
-                <div class="h5 mb-0 mr-3 font-weight-bold {% if vehicle.is_available %}text-success{% else %}text-danger{% endif %}">{% if vehicle.is_available %}{% trans "Charging" %} {{ vehicle.battery }}%{% else %}Not available{% endif %}</div>
+                <div class="h5 mb-0 mr-3 font-weight-bold {% if vehicle.is_available %}text-success{% else %}text-danger{% endif %}">{% if vehicle.is_available %}{% if vehicle.battery > 90 %}{% trans "Charged" %}{% else %}{% trans "Charging" %}{% endif %} {{ vehicle.battery }}%{% else %}{% trans "Not available" %}{% endif %}</div>
               </div>
 							{% if vehicle.is_available %}
               <div class="col">
