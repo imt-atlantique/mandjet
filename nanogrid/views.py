@@ -123,6 +123,7 @@ def status_api_view(request):
             "name":vehicle.name, 
             "type":vehicle.type, 
             "is_available":bool(vehicle.is_available()),
+            "next_ts":{"start":vehicle.next_ts().start, "end":vehicle.next_ts().end, "user":vehicle.next_ts().user.first_name} if vehicle.next_ts() else None,
             "battery":vehicle.battery
         })
 
