@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-18 18:42+0100\n"
-"PO-Revision-Date: 2020-03-18 18:43+0100\n"
+"POT-Creation-Date: 2021-09-21 06:47+0200\n"
+"PO-Revision-Date: 2021-09-21 06:49+0200\n"
 "Last-Translator: Baptiste Gaultier <baptiste.gaultier@imt.fr>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 3.0\n"
 
 #: mandjet/templates/about.html:7 mandjet/templates/base.html:94
 msgid "About"
@@ -43,7 +43,8 @@ msgstr "Modifier votre profil"
 msgid "Save"
 msgstr "Enregistrer"
 
-#: mandjet/templates/base.html:51 nanogrid/templates/vehicles/dashboard.html:11
+#: mandjet/templates/base.html:51 mandjet/templates/help.html:11
+#: nanogrid/templates/vehicles/dashboard.html:11
 msgid "Dashboard"
 msgstr "Tableau de bord"
 
@@ -65,7 +66,7 @@ msgstr "Véhicules"
 msgid "PV Solar panels"
 msgstr "Panneaux solaires"
 
-#: mandjet/templates/base.html:88 mandjet/templates/help.html:7
+#: mandjet/templates/base.html:88 mandjet/templates/help.html:1
 msgid "Help"
 msgstr "Aide"
 
@@ -77,52 +78,53 @@ msgstr "Profil"
 msgid "Logout"
 msgstr "Déconnexion"
 
-#: mandjet/templates/help.html:16
+#: mandjet/templates/help.html:6
 msgid "How to book a ride?"
 msgstr "Comment réserver un véhicule ?"
 
-#: mandjet/templates/help.html:19
+#: mandjet/templates/help.html:9
 msgid "Please follow the following steps to book a ride:"
 msgstr "Veuillez suivre les étapes suivantes pour réserver un trajet :"
 
-#: mandjet/templates/help.html:21
+#: mandjet/templates/help.html:11
 msgid "First of all, book your ride on this website →"
 msgstr "Tout d’abord, réservez votre véhicule en cliquant sur"
 
-#: mandjet/templates/help.html:22
+#: mandjet/templates/help.html:12
 msgid "Choose an available electric vehicle and click"
 msgstr "Choisissez un véhicule électrique disponible et cliquez sur"
 
-#: mandjet/templates/help.html:25
+#: mandjet/templates/help.html:15
 #: nanogrid/templates/nanogrid/timeslot_form.html:7
 #: nanogrid/templates/vehicles/dashboard.html:43
 #: nanogrid/templates/vehicles/dashboard.html:47
 msgid "Book a ride"
 msgstr "Réserver"
 
-#: mandjet/templates/help.html:28
+#: mandjet/templates/help.html:18
 msgid "Please log in using your IMT Atlantique credentials"
 msgstr "Connectez vous en utilisant vos identifiants IMT Atlantique"
 
-#: mandjet/templates/help.html:29
+#: mandjet/templates/help.html:19
 msgid "Specify your booking details and save!"
 msgstr ""
 "Précisez les horaires de votre réservation et cliquez sur sauvegarder !"
 
-#: mandjet/templates/help.html:31
+#: mandjet/templates/help.html:21
 msgid "Please have a look at the recap below:"
 msgstr "Une vidéo récapitulative est disponible ci-dessous :"
 
-#: mandjet/templates/help.html:38
+#: mandjet/templates/help.html:28
 msgid "Where are the vehicles?"
 msgstr "Où se trouvent les véhicules ?"
 
-#: mandjet/templates/help.html:42
-msgid "Go to the front desk and ask Delphine to open A00-104A room."
+#: mandjet/templates/help.html:32
+msgid "Go to the front desk and ask the bike shed keys."
 msgstr ""
-"Rendez-vous à l’accueil et demander à Delphine d’ouvrir la salle A00-104A."
+"Rendez-vous à l’accueil et demander les clés du local vélos situé à côté des "
+"panneaux solaires."
 
-#: mandjet/templates/help.html:43
+#: mandjet/templates/help.html:33
 msgid ""
 "You will have to sign a legal discharge of responsibility on your first "
 "booking."
@@ -130,40 +132,40 @@ msgstr ""
 "Lors de votre première réservation, il vous sera demander de signer une "
 "décharge."
 
-#: mandjet/templates/help.html:44
+#: mandjet/templates/help.html:34
 msgid "Safety first:"
 msgstr "La sécurité avant tout :"
 
-#: mandjet/templates/help.html:46
+#: mandjet/templates/help.html:36
 msgid "Wear neon, fluorescent or other bright clothing"
 msgstr ""
 "Privilégiez des vêtements réfléchissants, fluo ou encore des vêtements clairs"
 
-#: mandjet/templates/help.html:47
+#: mandjet/templates/help.html:37
 msgid "Ride during the day"
 msgstr "Effectuez vos trajets de jour"
 
-#: mandjet/templates/help.html:48
+#: mandjet/templates/help.html:38
 msgid "Wear an Helmet (two helmets are provided by IMT Atlantique)"
 msgstr "Portez un casque (deux casque peuvent être prêter par l’école)"
 
-#: mandjet/templates/help.html:49
+#: mandjet/templates/help.html:39
 msgid "Get acquainted with"
 msgstr "Prenez connaissance du"
 
-#: mandjet/templates/help.html:49
+#: mandjet/templates/help.html:39
 msgid "french traffic laws"
 msgstr "code de la route français"
 
-#: mandjet/templates/help.html:52
+#: mandjet/templates/help.html:42
 msgid "If you are riding a bike, always take a lock with you!"
 msgstr "Si vous réservez un vélo, prenez toujours un cadenas avec vous !"
 
-#: mandjet/templates/help.html:53
+#: mandjet/templates/help.html:43
 msgid "Enjoy your ride and come back before the end of your booking."
 msgstr "Profitez de votre voyage et revenez avant la fin de votre réservation."
 
-#: mandjet/templates/help.html:54
+#: mandjet/templates/help.html:44
 msgid "Do not forget to plug your vehicle once you get back!"
 msgstr "N’oubliez pas de brancher votre véhicule à votre retour !"
 
@@ -323,22 +325,22 @@ msgstr "Actions"
 msgid "at"
 msgstr "à"
 
-#: nanogrid/templates/vehicles/calendar.html:112
-msgid "No booking yet"
-msgstr "Pas encore de réservation"
-
-#: nanogrid/templates/vehicles/calendar.html:113
-msgid "Go to Dashboard"
-msgstr "Revenir au tableau de bord"
-
 #: nanogrid/templates/vehicles/calendar.html:129
 msgid "Please use the following url to subscribe to the .ics calendar:"
 msgstr ""
 "Veuillez utiliser l’url suivante pour vous abonner au calendrier .ics :"
 
 #: nanogrid/templates/vehicles/dashboard.html:27
+msgid "Charged"
+msgstr "Chargé"
+
+#: nanogrid/templates/vehicles/dashboard.html:27
 msgid "Charging"
 msgstr "En charge"
+
+#: nanogrid/templates/vehicles/dashboard.html:27
+msgid "Not available"
+msgstr "Indisponible"
 
 #: nanogrid/templates/vehicles/dashboard.html:41
 msgid "Returns:"
@@ -372,3 +374,9 @@ msgstr "Un problème sur %s a été signalé !"
 #, python-format
 msgid "Here is the comment: %s"
 msgstr "Voici le commentaire laissé par l’utilisateur : %s"
+
+#~ msgid "No booking yet"
+#~ msgstr "Pas encore de réservation"
+
+#~ msgid "Go to Dashboard"
+#~ msgstr "Revenir au tableau de bord"
