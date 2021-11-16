@@ -10,6 +10,7 @@ from django.core.mail import send_mail
 from .models import Vehicle, TimeSlot, Issue
 
 import json
+import datetime
 from icalendar import Calendar, Event
 
 class IndexView(generic.ListView):
@@ -153,16 +154,22 @@ def nanogrid_view(request):
     forecasts = json.load(forecasts_file)
 
     forecasts = forecasts.get('result')
+    production = {}
 
     now = timezone.now()
 
     current_forecast = 0
     for k, v in forecasts.items():
+        d = datetime.datetime.strptime(k, '%Y-%m-%d %H:%M:%S')
+        if d.timestamp() < now.timestamp():
+            production[k] = int(v/13)
         if k.startswith(now.strftime('%Y-%m-%d %H')):
             current_forecast = v
 
     context = {
             'forecasts': forecasts,
+            'production': production,
             'current_forecast': current_forecast,
+            'current_production': current_forecast/13,
             }
     return render(request, 'nanogrid/dashboard.html', context)
