@@ -38,7 +38,7 @@
 				</div>
 			</div>
       <div class="card-footer bg-white">
-				<span class="float-left">{% if vehicle.next_ts %}{% if not vehicle.is_available %}<strong>{% trans "Returns:" %}</strong> {{ vehicle.next_ts.end|naturalday }} {% trans "at" %} {{ vehicle.next_ts.end|time:"H:i" }} - {{ vehicle.next_ts.user.first_name }}{% else %}<strong>{% trans "Next:" %}</strong> {{ vehicle.next_ts.start|naturalday }} {% trans "at" %} {{ vehicle.next_ts.start|time:"H:i" }} - {{ vehicle.next_ts.user.first_name }}{% endif %}{% endif %}</span>
+				<span class="float-left">{% if vehicle.next_ts %}{% if not vehicle.is_available %}<strong>{% trans "Returns:" %}</strong> {{ vehicle.next_ts.end|naturalday }} {% trans "at" %} {{ vehicle.next_ts.end|time:"H:i" }} - {% if vehicle.next_ts.user.first_name %}{{ vehicle.next_ts.user.first_name }}{% else %}{{ vehicle.next_ts.user }}{% endif %}{% else %}<strong>{% trans "Next:" %}</strong> {{ vehicle.next_ts.start|naturalday }} {% trans "at" %} {{ vehicle.next_ts.start|time:"H:i" }} - {{ vehicle.next_ts.user.first_name }}{% endif %}{% endif %}</span>
 				<span class="float-right">
           <a href="{% url 'nanogrid:book' vehicle.id %}" title="{% trans "Book a ride" %}" class="btn btn-secondary btn-icon-split btn-sm">
             <span class="icon text-white-50">
