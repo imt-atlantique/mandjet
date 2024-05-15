@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-21 06:47+0200\n"
+"POT-Creation-Date: 2024-05-15 06:03+0200\n"
 "PO-Revision-Date: 2021-11-16 06:38+0100\n"
 "Last-Translator: Baptiste Gaultier <baptiste.gaultier@imt.fr>\n"
 "Language-Team: \n"
@@ -61,8 +61,7 @@ msgstr "Nanogrid (Nanogrid)"
 msgid "Vehicles"
 msgstr "Véhicules"
 
-#: mandjet/templates/base.html:78
-#: nanogrid/templates/nanogrid/dashboard.html:111
+#: mandjet/templates/base.html:78 nanogrid/templates/nanogrid/dashboard.html:82
 msgid "PV Solar panels"
 msgstr "Panneaux solaires"
 
@@ -125,12 +124,22 @@ msgstr ""
 "panneaux solaires."
 
 #: mandjet/templates/help.html:33
-msgid ""
-"You will have to sign a legal discharge of responsibility on your first "
-"booking."
+msgid "You will have to sign"
+msgstr ""
+
+#: mandjet/templates/help.html:33
+#, fuzzy
+#| msgid ""
+#| "You will have to sign a legal discharge of responsibility on your first "
+#| "booking."
+msgid "a legal discharge of responsibility"
 msgstr ""
 "Lors de votre première réservation, il vous sera demander de signer une "
 "décharge."
+
+#: mandjet/templates/help.html:33
+msgid "on your first booking."
+msgstr ""
 
 #: mandjet/templates/help.html:34
 msgid "Safety first:"
@@ -237,37 +246,29 @@ msgstr "Date de fin"
 msgid "Comment"
 msgstr "Commentaire"
 
-#: nanogrid/templates/nanogrid/dashboard.html:122
+#: nanogrid/templates/nanogrid/dashboard.html:93
 msgid "Solar PV"
 msgstr "Panneaux solaire"
 
-#: nanogrid/templates/nanogrid/dashboard.html:137
+#: nanogrid/templates/nanogrid/dashboard.html:108
 msgid "Forecast solar PV"
 msgstr "Prévision panneaux solaires"
 
-#: nanogrid/templates/nanogrid/dashboard.html:152
-msgid "Battery"
-msgstr "Batterie"
-
-#: nanogrid/templates/nanogrid/dashboard.html:176
+#: nanogrid/templates/nanogrid/dashboard.html:123
 msgid "Solar:"
 msgstr "Solaire :"
 
-#: nanogrid/templates/nanogrid/dashboard.html:176
+#: nanogrid/templates/nanogrid/dashboard.html:123
 msgid "production"
 msgstr "production"
 
-#: nanogrid/templates/nanogrid/dashboard.html:176
+#: nanogrid/templates/nanogrid/dashboard.html:123
 msgid "vs"
 msgstr "vs"
 
-#: nanogrid/templates/nanogrid/dashboard.html:176
+#: nanogrid/templates/nanogrid/dashboard.html:123
 msgid "forecast"
 msgstr "prévision"
-
-#: nanogrid/templates/nanogrid/dashboard.html:186
-msgid "Energy mix"
-msgstr "Mix énergétique"
 
 #: nanogrid/templates/nanogrid/issue_form.html:7
 #: nanogrid/templates/vehicles/dashboard.html:49
@@ -350,30 +351,36 @@ msgstr "Retour :"
 msgid "Next:"
 msgstr "Suivant :"
 
-#: nanogrid/views.py:40
+#: nanogrid/views.py:42
 #, python-format
 msgid "%s is not available for this period"
 msgstr "%s n’est pas disponible sur ce créneau"
 
-#: nanogrid/views.py:44 nanogrid/views.py:47
+#: nanogrid/views.py:46 nanogrid/views.py:49
 #, python-format
 msgid "Your booking for %s is ok!"
 msgstr "Votre réservation pour %s est ok!"
 
-#: nanogrid/views.py:86
+#: nanogrid/views.py:88
 #, python-format
 msgid "Your issue for %s has been reported!"
 msgstr "Votre problème de %s a été signalé !"
 
-#: nanogrid/views.py:89
+#: nanogrid/views.py:91
 #, python-format
 msgid "An issue for %s has been reported!"
 msgstr "Un problème sur %s a été signalé !"
 
-#: nanogrid/views.py:90
+#: nanogrid/views.py:92
 #, python-format
 msgid "Here is the comment: %s"
 msgstr "Voici le commentaire laissé par l’utilisateur : %s"
+
+#~ msgid "Battery"
+#~ msgstr "Batterie"
+
+#~ msgid "Energy mix"
+#~ msgstr "Mix énergétique"
 
 #~ msgid "No booking yet"
 #~ msgstr "Pas encore de réservation"
